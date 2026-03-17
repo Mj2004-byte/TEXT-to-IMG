@@ -1,18 +1,17 @@
 {
   "name": "txttoimg-mern",
   "private": true,
-  "workspaces": [
-    "server",
-    "client"
-  ],
   "scripts": {
-    "dev": "concurrently -n server,client -c cyan,magenta \"npm -w server run dev\" \"npm -w client run dev\"",
-    "build": "npm -w client run build",
-    "start": "npm -w client run preview"
+    "dev": "concurrently -n server,client -c cyan,magenta \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "build": "npm --prefix client run build",
+    "start": "npm --prefix client run preview"
+  },
+  "dependencies": {
+    "@huggingface/inference": "^4.6.4",
+    "mongoose": "^8.18.1"
   },
   "devDependencies": {
-    "concurrently": "^9.2.0",
-    "vercel": "^50.32.5"
+    "concurrently": "^9.2.0"
   },
   "engines": {
     "node": ">=18"
